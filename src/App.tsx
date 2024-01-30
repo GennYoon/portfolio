@@ -6,7 +6,7 @@ import gennyoon from "./assets/gennyoon.jpg";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />
       <div className="h-[1000px] ms-auto me-auto px-4 pt-14 md:w-[572px] sm:w-full">
         <p className="pt-20">안녕하세요. 윤원열(GennYoon)입니다.</p>
