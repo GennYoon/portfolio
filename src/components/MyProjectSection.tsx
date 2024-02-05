@@ -2,7 +2,7 @@ import { cn, supabase } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { type Tables } from "@/types/supabase";
 
-const tabs = [{ title: "All" }, { title: "Web" }, { title: "Mobile" }];
+const tabs = [{ title: "ALL" }, { title: "WEB" }, { title: "MOBILE" }];
 
 export default function MyProjectSection() {
   const [tab, setTab] = useState<number>(0);
@@ -13,10 +13,8 @@ export default function MyProjectSection() {
   }, []);
 
   const fetchProjects = async () => {
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*")
-      .order("id", { ascending: false });
+    const { data, error } = await supabase.from("projects").select("*");
+
     if (error) console.log("error", error);
     else setProjects(data);
   };
@@ -26,7 +24,7 @@ export default function MyProjectSection() {
       <div className="py-6">
         <h3 className="text-[24px] font-bold">My Projects</h3>
       </div>
-      <div className=" grid grid-cols-3 gap-4 w-60 h-6 mb-8">
+      <div className="grid grid-cols-3 gap-4 w-60 h-6 mb-8">
         {tabs.map(({ title }, index) => {
           return (
             <button
@@ -43,14 +41,17 @@ export default function MyProjectSection() {
           );
         })}
       </div>
-      <div className="w-full grid md:grid-cols-3 sm:grid-cols-2 gap-4">
+      <div className="w-full  min-h-96 grid md:grid-cols-2 gap-4">
         {projects.map(({ type, title }, index) => {
-          if (tabs[tab].title !== "All" && type !== tabs[tab].title)
+          if (tabs[tab].title !== "ALL" && type !== tabs[tab].title)
             return undefined;
 
           return (
-            <div key={index} className="rounded-lg h-[240px] bg-red-700">
-              {title}
+            <div key={index}>
+              <div className="w-full h-[200px] backdrop-blur-sm bg-white/30 rounded-lg mb-2" />
+              <div className="break-words">
+                <p>{title}</p>
+              </div>
             </div>
           );
         })}
