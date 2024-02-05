@@ -1,4 +1,4 @@
-import { ModeToggle } from "./mode-toggle";
+import { ModeToggle } from "./ModeToggle";
 
 export const Header = () => {
   return (
