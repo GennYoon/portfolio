@@ -1,26 +1,26 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { TypeAnimation } from "react-type-animation";
-import gennyoon from "../assets/gennyoon.jpg";
+import avator from "../assets/avator.jpg";
 
 export default function HeroSection() {
   return (
     <div className="flex justify-between mt-20 pb-12">
       <div>
-        <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Hello, I'm
         </h1>
-        <h1 className="text-3xl font-bold">
+        <h1 className="text-2xl font-bold">
           <TypeAnimation
             sequence={[
               "GennYoon",
               1000,
-              "Web Developer",
+              "Frontend Developer",
               1000,
-              "Server Developer",
+              "Backend Developer",
               1000,
-              "Mobile Developer",
+              "DevOps Engineer",
               1000,
-              "UI/UX Planner",
+              "App Developer",
               1000,
             ]}
             wrapper="span"
@@ -33,7 +33,7 @@ export default function HeroSection() {
         <Avatar>
           <AvatarImage
             className="w-20 h-20 rounded-full"
-            src={gennyoon}
+            src={avator}
             alt="avatar"
           />
           <AvatarFallback />

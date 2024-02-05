@@ -1,8 +1,15 @@
+import desktop from "../assets/developer-desktop.jpg";
+
 export default function AboutMeSection() {
   return (
-    <div role="about_me">
-      <h3 className="text-[24px] font-bold">About Me</h3>
-      <p className="break-words">저는 FullStack Web Developer 입니다.</p>
+    <div role="about_me" className="md:grid md:grid-cols-2 items-start gap-8">
+      <div className="rounded-lg overflow-hidden pb-8">
+        <img src={desktop} alt="desktop" />
+      </div>
+      <div className="pb-8">
+        <h3 className="text-[24px] font-bold">About Me</h3>
+        <p className="break-words">저는 FullStack Web Developer 입니다.</p>
+      </div>
 
       {/* <div> */}
       {/*   <div>Skills</div> */}
