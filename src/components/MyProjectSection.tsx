@@ -64,7 +64,7 @@ export default function MyProjectSection() {
             <div key={index} className="h-80">
               <div className="w-full h-2/3 mb-2 overflow-hidden">
                 <img
-                  className="w-full object-cover hover:scale-110 transition-all cursor-pointer backdrop-blur-sm bg-white/30"
+                  className="w-full object-cover hover:scale-110 transition-all will-change-scroll cursor-pointer backdrop-blur-sm bg-white/30"
                   src={image!}
                   alt={title!}
                 />

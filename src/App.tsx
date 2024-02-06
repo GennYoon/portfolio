@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />
-      <main className="ms-auto me-auto px-4 pt-14 min-w-[320px] md:w-[768px] sm:w-full sm:min-w-[470px]">
+      <main className="ms-auto me-auto px-4 py-14 min-w-[320px] md:w-[768px] sm:w-full sm:min-w-[470px]">
         <HeroSection />
         <AboutMeSection />
         <MyProjectSection />

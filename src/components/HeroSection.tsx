@@ -61,17 +61,21 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="flex gap-1.5 justify-start">
-        <Button variant="secondary" size="sm" className="rounded-full">
-          Contact me here
+        <Button asChild variant="secondary" size="sm" className="rounded-full">
+          <a href="#contract">Contact me here</a>
         </Button>
-        <Button variant="outline" size="sm" className="rounded-full">
+        <Button variant="outline" size="sm" className="rounded-full" disabled>
           Download CV
         </Button>
-        <Button variant="outline" size="icon" className="rounded-full">
-          <LinkedInLogoIcon />
+        <Button asChild variant="outline" size="icon" className="rounded-full">
+          <a href="https://www.linkedin.com/in/gennyoon/" target="_blank">
+            <LinkedInLogoIcon />
+          </a>
         </Button>
-        <Button variant="outline" size="icon" className="rounded-full">
-          <GitHubLogoIcon />
+        <Button asChild variant="outline" size="icon" className="rounded-full">
+          <a href="https://github.com/gennyoon" target="_blank">
+            <GitHubLogoIcon />
+          </a>
         </Button>
       </div>
     </motion.section>

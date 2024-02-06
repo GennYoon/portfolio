@@ -32,17 +32,6 @@ export default function AboutMeSection() {
             입니다. 저의 주력은 React (Next.js, Vite), Nest.js, Flutter, AWS
             입니다.
           </p>
-          <div></div>
-          {/* <div className="grid grid-cols-2 gap-2"> */}
-          {/*   <button className="px-1 py-1 w-full rounded-full bg-gradient-to-br from-[#036CDA] to-[#15F5FD] hover:bg-slate-200 text-white mt-3"> */}
-          {/*     Hiro Me */}
-          {/*   </button> */}
-          {/*   <button className="px-1 py-1 w-full rounded-full bg-gradient-to-br from-[#036CDA] to-[#15F5FD] hover:bg-slate-800 text-white mt-3"> */}
-          {/*     <span className="block bg-[#121212] hover:bg-slate-800 rounded-full py-2"> */}
-          {/*       Download CV */}
-          {/*     </span> */}
-          {/*   </button> */}
-          {/* </div> */}
         </div>
       </div>
     </motion.section>
