@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -7,8 +8,13 @@ import AboutMeSection from "./components/AboutMeSection";
 import MyProjectSection from "./components/MyProjectSection";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 
+import { motion, useInView } from "framer-motion";
+
 function App() {
   injectSpeedInsights();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Header />

@@ -1,12 +1,21 @@
 import { cn, supabase } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { type Tables } from "@/types/supabase";
+import { motion, useInView } from "framer-motion";
 
 const tabs = [{ title: "ALL" }, { title: "WEB" }, { title: "MOBILE" }];
 
 export default function MyProjectSection() {
   const [tab, setTab] = useState<number>(0);
   const [projects, setProjects] = useState<Tables<"projects">[]>([]);
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const canVariants = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+  };
 
   useEffect(() => {
     fetchProjects().catch(console.error);
@@ -18,9 +27,14 @@ export default function MyProjectSection() {
     if (error) console.log("error", error);
     else setProjects(data);
   };
-
   return (
-    <section role="my_projects" className="grid place-items-center">
+    <motion.section
+      ref={ref}
+      variants={canVariants}
+      initial="initial"
+      animate={isInView ? "animate" : "initial"}
+      className="grid place-items-center"
+    >
       <div className="py-6">
         <h3 className="text-[24px] font-bold">My Projects</h3>
       </div>
@@ -56,6 +70,6 @@ export default function MyProjectSection() {
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }
