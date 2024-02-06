@@ -2,7 +2,6 @@ import { cn, supabase } from "@/lib/utils";
 import { useRef, useEffect, useState } from "react";
 import { type Tables } from "@/types/supabase";
 import { motion, useInView } from "framer-motion";
-import image from "../assets/developer-desktop.jpg";
 
 const tabs = [{ title: "ALL" }, { title: "WEB" }, { title: "MOBILE" }];
 
@@ -56,21 +55,21 @@ export default function MyProjectSection() {
           );
         })}
       </div>
-      <div className="w-full min-h-[335px] transition-all grid md:grid-cols-2 gap-4">
-        {projects.map(({ type, title, url, stack }, index) => {
+      <div className="w-full min-h-96 transition-all grid md:grid-cols-2 gap-4">
+        {projects.map(({ image, type, title, url, stack }, index) => {
           if (tabs[tab].title !== "ALL" && type !== tabs[tab].title)
             return undefined;
 
           return (
-            <div key={index}>
-              <div className="w-full h-[200px] backdrop-blur-sm bg-white/30 rounded-lg mb-2 overflow-hidden">
+            <div key={index} className="h-80">
+              <div className="w-full h-2/3 mb-2 overflow-hidden">
                 <img
-                  className="w-full h-full object-cover hover:scale-110 transition-all duration-500 cursor-pointer"
-                  src={image}
+                  className="w-full object-cover hover:scale-110 transition-all cursor-pointer backdrop-blur-sm bg-white/30"
+                  src={image!}
                   alt={title!}
                 />
               </div>
-              <div className="break-words">
+              <div className="h-1/3 break-words">
                 <p className="font-bold mb-1">{title}</p>
                 {url && (
                   <p>

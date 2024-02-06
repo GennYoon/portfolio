@@ -14,7 +14,7 @@ export type Database = {
           content: string | null
           created_at: string
           id: number
-          images: string[] | null
+          image: string | null
           stack: string[] | null
           title: string | null
           type: Database["public"]["Enums"]["project_types"] | null
@@ -24,7 +24,7 @@ export type Database = {
           content?: string | null
           created_at?: string
           id?: number
-          images?: string[] | null
+          image?: string | null
           stack?: string[] | null
           title?: string | null
           type?: Database["public"]["Enums"]["project_types"] | null
@@ -34,7 +34,7 @@ export type Database = {
           content?: string | null
           created_at?: string
           id?: number
-          images?: string[] | null
+          image?: string | null
           stack?: string[] | null
           title?: string | null
           type?: Database["public"]["Enums"]["project_types"] | null
