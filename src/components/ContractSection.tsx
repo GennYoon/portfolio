@@ -5,9 +5,6 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Resend } from "resend";
-
-const resend = new Resend(import.meta.env.VITE_RESEND_API_KEY);
 
 const formScheme = z.object({
   email: z.string(),
@@ -24,12 +21,7 @@ export default function ContractSection() {
   });
 
   const onSubmit = (values: z.infer<typeof formScheme>) => {
-    resend.emails.send({
-      from: "yoonwonyoul@webchemist.net",
-      to: values.email,
-      subject: "GennYoon Portfolio Contact",
-      text: values.message,
-    });
+    console.log(values);
   };
 
   return (
