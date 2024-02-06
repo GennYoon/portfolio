@@ -6,7 +6,7 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
   public: {
     Tables: {
       projects: {
@@ -15,24 +15,30 @@ export interface Database {
           created_at: string
           id: number
           images: string[] | null
+          stack: string[] | null
           title: string | null
           type: Database["public"]["Enums"]["project_types"] | null
+          url: string | null
         }
         Insert: {
           content?: string | null
           created_at?: string
           id?: number
           images?: string[] | null
+          stack?: string[] | null
           title?: string | null
           type?: Database["public"]["Enums"]["project_types"] | null
+          url?: string | null
         }
         Update: {
           content?: string | null
           created_at?: string
           id?: number
           images?: string[] | null
+          stack?: string[] | null
           title?: string | null
           type?: Database["public"]["Enums"]["project_types"] | null
+          url?: string | null
         }
         Relationships: []
       }
