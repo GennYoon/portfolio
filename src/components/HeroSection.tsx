@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { TypeAnimation } from "react-type-animation";
-import avator from "../assets/avator.jpg";
+import avatar from "../assets/avatar.jpg";
 import { motion, useInView } from "framer-motion";
 import { Button } from "./ui/button";
 import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
@@ -53,7 +53,7 @@ export default function HeroSection() {
           <Avatar>
             <AvatarImage
               className="w-20 h-20 rounded-full"
-              src={avator}
+              src={avatar}
               alt="avatar"
             />
             <AvatarFallback />
