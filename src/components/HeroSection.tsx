@@ -4,7 +4,11 @@ import { TypeAnimation } from "react-type-animation";
 import avatar from "../assets/avatar.jpg";
 import { motion, useInView } from "framer-motion";
 import { Button } from "./ui/button";
-import { LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import {
+  Link2Icon,
+  LinkedInLogoIcon,
+  GitHubLogoIcon,
+} from "@radix-ui/react-icons";
 
 export default function HeroSection() {
   const ref = useRef(null);
@@ -66,6 +70,11 @@ export default function HeroSection() {
         </Button>
         <Button variant="outline" size="sm" className="rounded-full" disabled>
           Download CV
+        </Button>
+        <Button asChild variant="outline" size="icon" className="rounded-full">
+          <a href="https://gennyoon.net" target="_blank">
+            <Link2Icon />
+          </a>
         </Button>
         <Button asChild variant="outline" size="icon" className="rounded-full">
           <a href="https://www.linkedin.com/in/gennyoon/" target="_blank">
