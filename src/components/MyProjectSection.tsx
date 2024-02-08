@@ -25,7 +25,7 @@ export default function MyProjectSection() {
     const { data, error } = await supabase.from("projects").select("*");
 
     if (error) console.log("error", error);
-    else setProjects(data);
+    else setProjects(data!.sort((a, b) => a.id - b.id));
   };
   return (
     <motion.section
@@ -56,48 +56,35 @@ export default function MyProjectSection() {
         })}
       </div>
       <div className="w-full min-h-96 transition-all grid md:grid-cols-2 gap-4">
-        {projects.map(({ image, type, title, url, stack }, index) => {
+        {projects.map(({ image, type, title, content, url, stack }, index) => {
           if (tabs[tab].title !== "ALL" && type !== tabs[tab].title)
             return undefined;
 
           return (
-            <div key={index} className="h-80">
-              <div className="w-full h-2/3 mb-2 overflow-hidden">
+            <a key={index} className="mb-8" href={url!} target="_blank">
+              <span className="bg-[#15F5FD40] dark:text-[#15F5FD] text-sky-600 text-sm font-bold py-1 px-3 rounded-xl">
+                {type}
+              </span>
+              <p className="text-xl font-bold pt-3">{title}</p>
+              <div className="flex gap-1.5 py-2 text-gray-800 dark:text-gray-200">
+                {stack!.map((st) => (
+                  <span
+                    key={st}
+                    className="text-sm bg-gray-200 dark:bg-gray-800 rounded-sm py-0.5 px-2"
+                  >
+                    {st}
+                  </span>
+                ))}
+              </div>
+              <div className="w-full">
                 <img
-                  className="w-full object-cover hover:scale-110 transition-all will-change-scroll cursor-pointer backdrop-blur-sm bg-white/30"
+                  className="w-full h-72 md:h-52 mb-2 rounded-2xl object-cover object-top transition-all will-change-scroll cursor-pointer backdrop-blur-sm bg-white/30"
                   src={image!}
                   alt={title!}
                 />
               </div>
-              <div className="h-1/3 break-words">
-                <p className="font-bold mb-1">{title}</p>
-                {url && (
-                  <p>
-                    <span className="text-xs font-bold bg-[#036CDA] text-[#15F5FD] py-0.5 px-1 mr-1.5">
-                      WEBSITE
-                    </span>
-                    <a href={url} target="_blank" className="hover:underline">
-                      {url}
-                    </a>
-                  </p>
-                )}
-
-                <p>
-                  <span className="text-xs font-bold bg-[#036CDA] text-[#15F5FD] py-0.5 px-1 mr-1.5">
-                    PLATFORM
-                  </span>
-                  <span>{type}</span>
-                </p>
-                {stack && (
-                  <p>
-                    <span className="text-xs font-bold bg-[#036CDA] text-[#15F5FD] py-0.5 px-1 mr-1.5">
-                      STACK
-                    </span>
-                    <span>{stack.join(", ")}</span>
-                  </p>
-                )}
-              </div>
-            </div>
+              <p className="md:text-sm line-clamp-3">{content}</p>
+            </a>
           );
         })}
       </div>
