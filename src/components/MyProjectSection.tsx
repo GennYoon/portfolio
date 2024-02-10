@@ -83,7 +83,7 @@ export default function MyProjectSection() {
                   alt={title!}
                 />
               </div>
-              <p className="md:text-sm line-clamp-3">{content}</p>
+              <p className="md:text-sm break-all line-clamp-3">{content}</p>
             </a>
           );
         })}
