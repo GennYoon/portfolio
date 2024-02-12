@@ -1,3 +1,4 @@
+import ReactGA from "react-ga";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -8,6 +9,9 @@ import MyProjectSection from "./components/MyProjectSection";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import ContractSection from "./components/ContractSection";
 import MySkill from "./components/MySkill";
+
+const gaTrackingId = import.meta.env.VITE_GOOGLE_ANALYTICS_ID;
+ReactGA.initialize(gaTrackingId);
 
 function App() {
   injectSpeedInsights();
