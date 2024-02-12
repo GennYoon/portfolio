@@ -10,8 +10,10 @@ import { injectSpeedInsights } from "@vercel/speed-insights";
 import ContractSection from "./components/ContractSection";
 import MySkill from "./components/MySkill";
 
-const gaTrackingId = import.meta.env.VITE_GOOGLE_ANALYTICS_ID;
-ReactGA.initialize(gaTrackingId);
+if (import.meta.env.MODE !== "development") {
+  const gaTrackingId = import.meta.env.VITE_GOOGLE_ANALYTICS_ID;
+  ReactGA.initialize(gaTrackingId);
+}
 
 function App() {
   injectSpeedInsights();
