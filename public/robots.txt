@@ -1,2 +1,10 @@
-User-agent: Yeti
-Allow:/
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio.gennyoon.net
+
+# Sitemaps
+Sitemap: https://portfolio.gennyoon.net/sitemap.xml
+
