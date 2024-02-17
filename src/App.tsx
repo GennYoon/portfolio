@@ -1,6 +1,6 @@
 import ReactGA from "react-ga";
-import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 import HeroSection from "./components/HeroSection";
@@ -9,6 +9,7 @@ import MyProjectSection from "./components/MyProjectSection";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import ContractSection from "./components/ContractSection";
 import MySkill from "./components/MySkill";
+import { Toaster } from "./components/ui/toaster";
 
 if (import.meta.env.MODE !== "development") {
   const gaTrackingId = import.meta.env.VITE_GOOGLE_ANALYTICS_ID;
@@ -29,6 +30,7 @@ function App() {
         <ContractSection />
       </main>
       <Footer />
+      <Toaster />
     </ThemeProvider>
   );
 }

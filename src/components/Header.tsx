@@ -2,8 +2,8 @@ import { ModeToggle } from "./ModeToggle";
 
 export const Header = () => {
   return (
-    <header className="fixed left-0 right-0 top-0 bg-[#dfdfdf30] dark:bg-[#20202320] backdrop-blur-[10px] z-[2]">
-      <div className="flex justify-between items-center py-2 px-4 ml-auto mr-auto md:w-[768px] sm:w-full">
+    <header className="fixed left-0 right-0 top-0 z-[2] bg-[#dfdfdf30] backdrop-blur-[10px] dark:bg-[#20202320]">
+      <div className="ml-auto mr-auto flex items-center justify-between px-4 py-2 sm:w-full md:w-[768px]">
         <h1 className="text-xl font-bold">GennYoon Portfolio</h1>
         <ModeToggle />
       </div>

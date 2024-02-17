@@ -5,7 +5,7 @@ import avatar from "../assets/avatar.jpg";
 import { motion, useInView } from "framer-motion";
 import { Button } from "./ui/button";
 import {
-  Link2Icon,
+  HomeIcon,
   LinkedInLogoIcon,
   GitHubLogoIcon,
 } from "@radix-ui/react-icons";
@@ -36,15 +36,11 @@ export default function HeroSection() {
           <h1 className="text-2xl font-bold mb-8">
             <TypeAnimation
               sequence={[
+                "FullStack Developer",
+                1000,
+                "use NeoVim IDE",
+                1000,
                 "GennYoon",
-                1000,
-                "Frontend Developer",
-                1000,
-                "Backend Developer",
-                1000,
-                "DevOps Engineer",
-                1000,
-                "App Developer",
                 1000,
               ]}
               wrapper="span"
@@ -68,12 +64,9 @@ export default function HeroSection() {
         <Button asChild variant="secondary" size="sm" className="rounded-full">
           <a href="#contract">Contact me here</a>
         </Button>
-        <Button variant="outline" size="sm" className="rounded-full" disabled>
-          Download CV
-        </Button>
         <Button asChild variant="outline" size="icon" className="rounded-full">
           <a href="https://gennyoon.net" target="_blank">
-            <Link2Icon />
+            <HomeIcon />
           </a>
         </Button>
         <Button asChild variant="outline" size="icon" className="rounded-full">

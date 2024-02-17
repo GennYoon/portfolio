@@ -5,6 +5,9 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { supabase } from "@/lib/utils";
+import { useState } from "react";
+import { useToast } from "./ui/use-toast";
 
 const formScheme = z.object({
   email: z.string(),
@@ -12,6 +15,8 @@ const formScheme = z.object({
 });
 
 export default function ContractSection() {
+  const [isLoading, setLoading] = useState(false);
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formScheme>>({
     resolver: zodResolver(formScheme),
     defaultValues: {
@@ -20,8 +25,23 @@ export default function ContractSection() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formScheme>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formScheme>) => {
+    setLoading(true);
+    const res = await supabase.functions.invoke("resend", {
+      body: {
+        email: values.email,
+        message: values.message,
+      },
+    });
+
+    if (res.data) setLoading(false);
+    form.reset();
+
+    toast({
+      title: "Send Completed",
+      description:
+        "Thank you for your email. I will look at the contents and respond.",
+    });
   };
 
   return (
@@ -41,6 +61,7 @@ export default function ContractSection() {
                     className="mb-4"
                     placeholder="Your Email"
                     {...field}
+                    disabled={isLoading}
                   />
                 </FormControl>
                 <FormMessage />
@@ -57,12 +78,13 @@ export default function ContractSection() {
                     rows={4}
                     placeholder="Your Message"
                     {...field}
+                    disabled={isLoading}
                   />
                 </FormControl>
               </FormItem>
             )}
           />
-          <Button type="submit" variant="secondary">
+          <Button type="submit" variant="secondary" disabled={isLoading}>
             Submit
           </Button>
         </form>
