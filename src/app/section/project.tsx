@@ -4,8 +4,9 @@ import React from "react";
 
 import Image from "next/image";
 
-import { supabase } from "@/lib/supabase";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/classname";
+import { supabase } from "@/utils/supabase";
+
 import { Tables } from "@/types/database.type";
 
 import { motion, useInView } from "framer-motion";
