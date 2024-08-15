@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import { supabase } from "@/lib/supabase";
 import { cn } from "@/lib/utils";
+import { Tables } from "@/types/database.type";
 
 import { motion, useInView } from "framer-motion";
 
@@ -13,7 +14,7 @@ const tabs = [{ title: "ALL" }, { title: "WEB" }, { title: "MOBILE" }];
 
 const ProjectSection = () => {
   const [tab, setTab] = React.useState<number>(0);
-  const [projects, setProjects] = React.useState([]);
+  const [projects, setProjects] = React.useState<Tables<"project">[]>([]);
 
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -27,9 +28,7 @@ const ProjectSection = () => {
     supabase
       .from("project")
       .select()
-      .then(({ data: projects }) => {
-        setProjects(projects);
-      });
+      .then(({ data: projects }) => setProjects(projects!));
   }, []);
 
   return (
