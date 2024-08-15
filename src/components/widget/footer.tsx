@@ -1,4 +1,4 @@
-const Footer = () => {
+const FooterWidget = () => {
   return (
     <footer className="me-auto ms-auto flex justify-center p-4 sm:w-full md:w-[740px]">
       <p className="text-gray-400">© 2024 GennYonn. All Rights Reserved.</p>
@@ -6,4 +6,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterWidget;

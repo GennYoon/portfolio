@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/utils/supabase";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
