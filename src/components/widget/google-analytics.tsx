@@ -1,10 +1,12 @@
 "use client";
 
-import Script from "next/script";
-import * as gtag from "@/lib/gtag";
 import React from "react";
 
-export default function GoogleAnalytics() {
+import Script from "next/script";
+
+import * as gtag from "@/utils/gtag";
+
+const GoogleAnalyticsWidget = () => {
   gtag.useGtag();
 
   return (
@@ -34,4 +36,6 @@ export default function GoogleAnalytics() {
       )}
     </React.Fragment>
   );
-}
+};
+
+export default GoogleAnalyticsWidget;
