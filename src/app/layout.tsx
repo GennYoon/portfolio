@@ -1,9 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
 
-import GoogleAnalytics from "@/components/widget/google-analytics";
+import ThemeProvider from "@/components/provider/theme-provider";
 
-import { cn } from "@/lib/utils";
+import FooterWidget from "@/components/widget/footer";
+import GoogleAnalyticsWidget from "@/components/widget/google-analytics";
+import HeaderWidget from "@/components/widget/header";
+
+import { Toaster } from "@/components/ui/toaster";
+
+import { cn } from "@/utils/classname";
+
 import "@/styles/globals.css";
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
@@ -56,8 +63,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        {process.env.NEXT_PUBLIC_GA_ID ? <GoogleAnalytics /> : <div>GA 환경변수 필요</div>}
-        {children}
+        {process.env.NEXT_PUBLIC_GA_ID ? <GoogleAnalyticsWidget /> : <div>GA 환경변수 필요</div>}
+
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <HeaderWidget />
+          {children}
+          <FooterWidget />
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
