@@ -34,7 +34,7 @@ const fadeInAnimationVariants = {
 const SkillSection = () => {
   return (
     <section data-test="my_skill" className="mb-16 text-center">
-      <h1 className="mb-4 text-2xl font-bold">My Skills</h1>
+      <h1 className="mb-4 text-2xl font-bold">Skills</h1>
       <ul className="flex flex-wrap justify-start gap-2 text-xs text-gray-800">
         {skills.map((skill, index) => (
           <motion.li
