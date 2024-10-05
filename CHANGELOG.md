@@ -1,5 +1,12 @@
 
 
+# 0.2.0 (2024-10-05)
+
+
+### Features
+
+* modify main page ([1fd9683](https://github.com/GennYoon/profile/commit/1fd9683c4efba5df94c77b4205c247f918d953b0))
+
 ## 0.1.1 (2024-08-16)
 
 
