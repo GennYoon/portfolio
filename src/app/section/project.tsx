@@ -40,7 +40,7 @@ const ProjectSection = () => {
       animate={isInView ? "animate" : "initial"}
       className="mb-8 grid place-items-center">
       <div className="py-6">
-        <h3 className="text-2xl font-bold">My Projects</h3>
+        <h3 className="text-2xl font-bold">Projects</h3>
       </div>
       <div className="mb-8 grid h-6 w-60 grid-cols-3 gap-4">
         {tabs.map(({ title }, index) => {
